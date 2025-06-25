@@ -10,6 +10,7 @@ use App\Models\Pegawai;
 use App\Models\Ruangan;
 use App\Models\Kriteria;
 use App\Models\Inventaris;
+use App\Models\Kamar;
 use App\Models\Verifikasi;
 use App\Models\Perlengkapan;
 
@@ -48,6 +49,10 @@ function bulan()
     return $namaBulan;
 }
 
+function kamar()
+{
+    return Kamar::get();
+}
 function fasilitas()
 {
     return Fasilitas::get();
