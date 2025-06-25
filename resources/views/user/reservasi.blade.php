@@ -30,6 +30,7 @@
                                 <th>harga</th>
                                 <th>total</th>
                                 <th>status</th>
+                                <th>Pembayaran</th>
                                 <th>aksi</th>
                             </tr>
                         </thead>
@@ -46,11 +47,21 @@
                                 <td>{{number_format($item->harga * $item->lama)}}</td>
                                 <td>{{$item->status}}</td>
                                 <td>
+                                    Metode : {{$item->pembayaran == null ? null : $item->pembayaran->metode}} <br />
+                                    Jumlah : {{$item->pembayaran == null ? null :
+                                    number_format($item->pembayaran->jumlah)}} <br />
+                                </td>
+                                <td>
+                                    @if ($item->status == 'lunas')
+                                    <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Selesai</a>
+                                    @else
                                     <a href="/user/bayar/{{$item->id}}" class="btn btn-sm btn-success"><i
                                             class="fa fa-check"></i> Bayar</a>
                                     <a href="/user/reservasi/delete/{{$item->id}}" class="btn btn-sm btn-danger"
                                         onclick="return confirm('Yakin ingin dibatalkan?');"><i class="fa fa-times"></i>
                                         batal</a>
+                                    @endif
+
 
                                 </td>
                             </tr>
