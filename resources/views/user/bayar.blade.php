@@ -54,18 +54,20 @@
                         <hr>
                         <div class="form-group">
                             <label class="floating-label" for="Email">Tanggal Pembayaran</label>
-                            <input type="date" class="form-control" name="check_out" value="{{$reservasi->check_in}}">
+                            <input type="date" class="form-control" name="tanggal"
+                                value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label class="floating-label" for="Email">metode pembayaran</label>
                             <input type="text" class="form-control" name="metode" required placeholder="cash">
                         </div>
                         <div class="form-group">
-                            <label class="floating-label" for="Email">status pembayaran</label>
-                            <input type="text" class="form-control" name="status" required placeholder="lunas">
+                            <label class="floating-label" for="Email">Jumlah Bayar</label>
+                            <input type="text" class="form-control" name="jumlah" required
+                                onkeypress="return hanyaAngka(event)">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Simpan Pembayaran</button>
+                            <button type="submit" class="btn btn-primary">Bayar</button>
                             <a href="/user/reservasi">Kembali</a>
                         </div>
                     </div>

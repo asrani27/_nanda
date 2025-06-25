@@ -13,4 +13,8 @@ class Reservasi extends Model
     {
         return $this->belongsTo(Kamar::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

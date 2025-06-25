@@ -41,6 +41,13 @@ class UserController extends Controller
         $reservasi = Reservasi::find($id);
         return view('user.bayar', compact('id', 'reservasi'));
     }
+    public function simpanBayar(Request $req, $id)
+    {
+        $param = $req->all();
+        $param['reservasi_id'] = $id;
+        dd($param);
+    }
+
     public function laporan_reservasi()
     {
         $data = Reservasi::get();

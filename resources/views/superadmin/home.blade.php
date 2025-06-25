@@ -17,17 +17,10 @@
                 <label class="badge badge-light-danger">Merah = Terisi</label>
                 <br />
                 <br />
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>001</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>002</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>003</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>004</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>005</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>006</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>007</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>008</button>
-                <button type="button" class="btn btn-success"><i class="feather mr-2 icon-check-circle"></i>009</button>
-                <button type="button" class="btn btn-danger"><i class="feather mr-2 icon-slash"></i>010</button>
-
+                @foreach (kamar() as $item)
+                <button type="button" class="btn {{$item->status == 'Y' ? 'btn-success':'btn-danger'}}"><i
+                        class="feather mr-2 icon-check-circle"></i>{{$item->nomor}}</button>
+                @endforeach
             </div>
         </div>
     </div>

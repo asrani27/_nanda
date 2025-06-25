@@ -21,8 +21,10 @@ use App\Models\Prestasi;
 use App\Models\Pengaduan;
 use App\Models\Transaksi;
 use App\Models\Distribusi;
+use App\Models\Fasilitas;
 use App\Models\Inventaris;
 use App\Models\Jabatan;
+use App\Models\Kamar;
 use App\Models\Kodefikasi;
 use App\Models\Kriteria;
 use App\Models\LaporKerja;
@@ -31,6 +33,8 @@ use App\Models\Perusahaan;
 use App\Models\Verifikasi;
 use App\Models\Pemeliharaan;
 use App\Models\Penilaian;
+use App\Models\Perlengkapan;
+use App\Models\Reservasi;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -56,28 +60,28 @@ class LaporanController extends Controller
     {
         return view('superadmin.laporan.index');
     }
-    public function kriteria()
+    public function kamar()
     {
-        $data = Kriteria::get();
-        $pdf = Pdf::loadView('superadmin.laporan.pdf_kriteria', compact('data'))->setPaper('a4', 'landscape');;
+        $data = Kamar::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_kamar', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
-    public function jabatan()
+    public function fasilitas()
     {
-        $data = Jabatan::get();
-        $pdf = Pdf::loadView('superadmin.laporan.pdf_jabatan', compact('data'))->setPaper('a4', 'landscape');;
+        $data = Fasilitas::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_Fasilitas', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
-    public function pegawai()
+    public function perlengkapan()
     {
-        $data = Pegawai::get();
-        $pdf = Pdf::loadView('superadmin.laporan.pdf_pegawai', compact('data'))->setPaper('a4', 'landscape');;
+        $data = Perlengkapan::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_perlengkapan', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
-    public function penilaian()
+    public function reservasi()
     {
-        $data = Penilaian::get();
-        $pdf = Pdf::loadView('superadmin.laporan.pdf_penilaian', compact('data'))->setPaper('a4', 'landscape');;
+        $data = Reservasi::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_reservasi', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
     public function hasil()
