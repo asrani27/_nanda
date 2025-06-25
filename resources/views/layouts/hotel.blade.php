@@ -49,8 +49,7 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="/hotel/index.html"><img src="/logo/logo.png" alt="#" height="50px"
-                                            width="30%" /></a>
+                                    <a href="/"><img src="/logo/logoros.jpeg" alt="#" width="80%" /></a>
                                 </div>
                             </div>
                         </div>

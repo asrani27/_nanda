@@ -1,19 +1,41 @@
 <?php
 
-use App\Http\Controllers\FasilitasController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\PerlengkapanController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
+Route::get('/daftar', [DaftarController::class, 'index']);
+Route::post('/daftar', [DaftarController::class, 'store']);
+
+Route::middleware(['auth', 'user'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'dashboard']);
+
+    Route::get('/user/ajukan', [UserController::class, 'ajukan']);
+    Route::get('/user/ajukan/add', [UserController::class, 'add_ajukan']);
+    Route::post('/user/ajukan/add', [UserController::class, 'store_ajukan']);
+    Route::get('/user/ajukan/edit/{id}', [UserController::class, 'edit_ajukan']);
+    Route::post('/user/ajukan/edit/{id}', [UserController::class, 'update_ajukan']);
+    Route::get('/user/ajukan/delete/{id}', [UserController::class, 'delete_ajukan']);
+
+    Route::get('/user/pengaduan', [UserController::class, 'pengaduan']);
+    Route::get('/user/pengaduan/add', [UserController::class, 'add_pengaduan']);
+    Route::post('/user/pengaduan/add', [UserController::class, 'store_pengaduan']);
+    Route::get('/user/pengaduan/edit/{id}', [UserController::class, 'edit_pengaduan']);
+    Route::post('/user/pengaduan/edit/{id}', [UserController::class, 'update_pengaduan']);
+    Route::get('/user/pengaduan/delete/{id}', [UserController::class, 'delete_pengaduan']);
+});
 
 Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin', [HomeController::class, 'superadmin']);

@@ -16,6 +16,11 @@ class LoginController extends Controller
             return view('login');
         }
     }
+
+    public function daftar()
+    {
+        return view('daftar');
+    }
     public function index()
     {
         if (Auth::check()) {

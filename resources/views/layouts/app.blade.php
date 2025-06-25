@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="/material/dist/assets/css/plugins/prism-coy.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="/material/dist/assets/css/style.css">
+    <link rel="stylesheet" href="/notif/dist/css/iziToast.min.css">
+    <script src="/notif/dist/js/iziToast.min.js" type="text/javascript"></script>
+
 
 
 
@@ -44,6 +47,9 @@
                     <li class="nav-item pcoded-menu-caption">
                         <label>Navigation</label>
                     </li>
+
+                    @if (Auth::user()->roles== 'superadmin')
+
                     <li class="nav-item">
                         <a href="/superadmin" class="nav-link "><span class="pcoded-micon"><i
                                     class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
@@ -63,8 +69,6 @@
                                     class="feather icon-list"></i></span><span class="pcoded-mtext">Data
                                 Kamar</span></a>
                     </li>
-
-
                     <li class="nav-item">
                         <a href="/superadmin/reservasi" class="nav-link "><span class="pcoded-micon"><i
                                     class="feather icon-list"></i></span><span class="pcoded-mtext">Reservasi
@@ -76,6 +80,17 @@
                             </span></a>
                     </li>
 
+                    @else
+                    <li class="nav-item">
+                        <a href="/user/dashboard" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/user/reservasi" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-shopping-cart"></i></span><span class="pcoded-mtext">Reservasi
+                                Saya</span></a>
+                    </li>
+                    @endif
                     <li class="nav-item">
                         <a href="/logout" class="nav-link " onclick="return confirm('Yakin ingin keluar?');"><span
                                 class="pcoded-micon"><i class="feather icon-list"></i></span><span class="pcoded-mtext">
@@ -173,7 +188,7 @@
                 <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
                 <a href="#!" class="b-brand">
                     <!-- ========   change your logo hear   ============ -->
-                    <img src="/logo/logo.png" width="30%" alt="" class="logo">
+                    <img src="/logo/logoros.jpeg" width="65%" alt="" class="logo">
                     <img src="/material/dist/assets/images/logo-icon.png" alt="" class="logo-thumb">
                 </a>
                 <a href="#!" class="mob-toggler">

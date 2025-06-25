@@ -8,7 +8,7 @@
             <h5>Tambah Data</h5>
         </div>
         <div class="card-body">
-            <form method="post" action="/superadmin/kamar/add">
+            <form method="post" action="/superadmin/kamar/add" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-sm-12">
@@ -51,6 +51,10 @@
                                 <option value="Y">Tersedia</option>
                                 <option value="T">Terisi</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="floating-label" for="Email"></label>
+                            <input type="file" class="form-control" name="file" accept="image/*">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>

@@ -8,7 +8,7 @@
             <h5>Edit Data</h5>
         </div>
         <div class="card-body">
-            <form method="post" action="/superadmin/kamar/edit/{{$data->id}}">
+            <form method="post" action="/superadmin/kamar/edit/{{$data->id}}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-sm-12">
@@ -56,6 +56,11 @@
                                 <option value="T" {{$data->status == 'T' ?
                                     'selected':''}}>Terisi</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="floating-label" for="Email"></label>
+                            <input type="file" class="form-control" name="file" accept="image/*"
+                                value="{{$data->file}}">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Update</button>

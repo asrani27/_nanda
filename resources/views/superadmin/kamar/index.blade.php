@@ -22,6 +22,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th></th>
                                 <th>Nomor kamar</th>
                                 <th>tipe</th>
                                 <th>harga</th>
@@ -35,6 +36,7 @@
                             @foreach ($data as $key=> $item)
                             <tr>
                                 <td>{{$data->firstItem() + $key}}</td>
+                                <td><img src="/storage/file/{{$item->file}}" width="120px" height="70px"></td>
                                 <td>{{$item->nomor}}</td>
                                 <td>{{$item->tipe}}</td>
                                 <td>{{number_format($item->harga)}}</td>
@@ -42,7 +44,7 @@
                                 <td>{{$item->fasilitas == null ? '': $item->fasilitas->nama}}</td>
                                 <td>{{$item->status == 'Y' ? 'tersedia' :'terisi'}}</td>
                                 <td>
-                                    <a href="/superadmin/kamar/edit/{{$item->id}}" class="btn btn-sm btn-success"><i
+                                    <a href=" /superadmin/kamar/edit/{{$item->id}}" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit"></i></a>
                                     <a href="/superadmin/kamar/delete/{{$item->id}}" class="btn btn-sm btn-danger"
                                         onclick="return confirm('Yakin ingin dihapus?');"><i

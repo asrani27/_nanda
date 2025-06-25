@@ -38,7 +38,7 @@
             <div class="row align-items-center text-center">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <img src="/logo/logo.png" width="30%"> <br /><br />
+                        <img src="/logo/logoros.jpeg" width="80%"> <br /><br />
                         <h4>
                             Login Aplikasi</h4>
 
@@ -58,7 +58,7 @@
                             <div class="custom-control custom-checkbox text-left mb-4 mt-2">
                             </div>
                             <button class="btn btn-block btn-primary mb-4">Masuk</button>
-                            <a href="/daftar" class="btn btn-block btn-danger mb-4">Daftar</a>
+                            <a href="/daftar" class="btn btn-block btn-danger mb-4" style="color: white">Daftar</a>
                         </form>
 
                     </div>
