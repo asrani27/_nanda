@@ -43,9 +43,15 @@ class UserController extends Controller
     }
     public function simpanBayar(Request $req, $id)
     {
+        $data = Reservasi::find($id);
+        if ($req->jumlah < ($data->harga * $data->lama)) {
+            Session::flash('error', 'Jumlah bayar tidak boleh kurang dari total yang harus di bayar');
+            return back();
+        }
         $param = $req->all();
         $param['reservasi_id'] = $id;
-        dd($param);
+        $param['status'] = 'lunas';
+        return redirect('/user/reservasi');
     }
 
     public function laporan_reservasi()
