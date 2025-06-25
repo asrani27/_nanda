@@ -8,6 +8,7 @@ use App\Models\Kamar;
 use App\Models\Pengaduan;
 use App\Models\Pengajuan;
 use App\Models\Reservasi;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,9 @@ class UserController extends Controller
         }
         $param = $req->all();
         $param['reservasi_id'] = $id;
-        $param['status'] = 'lunas';
+        $data->update(['status' => 'lunas']);
+
+        Pembayaran::create($param);
         return redirect('/user/reservasi');
     }
 
