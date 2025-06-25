@@ -23,11 +23,11 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'dashboard']);
 
     Route::get('/user/pesan/{id}', [UserController::class, 'pesan']);
-    Route::get('/user/ajukan/add', [UserController::class, 'add_ajukan']);
-    Route::post('/user/ajukan/add', [UserController::class, 'store_ajukan']);
-    Route::get('/user/ajukan/edit/{id}', [UserController::class, 'edit_ajukan']);
-    Route::post('/user/ajukan/edit/{id}', [UserController::class, 'update_ajukan']);
-    Route::get('/user/ajukan/delete/{id}', [UserController::class, 'delete_ajukan']);
+    Route::post('/user/pesan/{id}', [UserController::class, 'simpanPesan']);
+    Route::get('/user/bayar/{id}', [UserController::class, 'bayar']);
+    Route::get('/user/reservasi', [UserController::class, 'reservasi']);
+    Route::get('/user/laporan/reservasi', [UserController::class, 'laporan_reservasi']);
+    Route::get('/user/reservasi/delete/{id}', [UserController::class, 'deleteReservasi']);
 
     Route::get('/user/pengaduan', [UserController::class, 'pengaduan']);
     Route::get('/user/pengaduan/add', [UserController::class, 'add_pengaduan']);

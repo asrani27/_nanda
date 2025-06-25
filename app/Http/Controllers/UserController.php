@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Kamar;
 use App\Models\Pengaduan;
 use App\Models\Pengajuan;
+use App\Models\Reservasi;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -16,9 +20,52 @@ class UserController extends Controller
     {
         return view('user.dashboard');
     }
+    public function reservasi()
+    {
+        $data = Reservasi::where('user_id', Auth::user()->id)->paginate(10);
+        return view('user.reservasi', compact('data'));
+    }
+    public function deleteReservasi($id)
+    {
+        $data = Reservasi::find($id)->delete();
+        Session::flash('success', 'Reservasi Dibatalkan');
+        return back();
+    }
     public function pesan($id)
     {
-        return view('user.pesan', compact('id'));
+        $data = Kamar::find($id);
+        return view('user.pesan', compact('id', 'data'));
+    }
+    public function bayar($id)
+    {
+        $reservasi = Reservasi::find($id);
+        return view('user.bayar', compact('id', 'reservasi'));
+    }
+    public function laporan_reservasi()
+    {
+        $data = Reservasi::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_reservasi', compact('data'))->setPaper('a4', 'landscape');;
+        return $pdf->stream();
+    }
+    public function simpanPesan(Request $req, $id)
+    {
+        $checkin = Carbon::parse($req->check_in);
+        $checkout = Carbon::parse($req->check_out);
+        if ($req->check_in == $req->check_out) {
+            Session::flash('error', 'tgl checkin dan checkout tidak bisa sama');
+            return back();
+        } else {
+
+            $param = $req->all();
+            $param['user_id'] = Auth::user()->id;
+            $param['kamar_id'] = $id;
+            $param['lama'] = $checkin->diffInDays($checkout);
+            $param['status'] = 'menunggu pembayaran';
+
+            $reservasi = Reservasi::create($param);
+
+            return redirect('/user/bayar/' . $reservasi->id);
+        }
     }
     public function index()
     {
