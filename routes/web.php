@@ -22,7 +22,7 @@ Route::post('/daftar', [DaftarController::class, 'store']);
 Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'dashboard']);
 
-    Route::get('/user/ajukan', [UserController::class, 'ajukan']);
+    Route::get('/user/pesan/{id}', [UserController::class, 'pesan']);
     Route::get('/user/ajukan/add', [UserController::class, 'add_ajukan']);
     Route::post('/user/ajukan/add', [UserController::class, 'store_ajukan']);
     Route::get('/user/ajukan/edit/{id}', [UserController::class, 'edit_ajukan']);

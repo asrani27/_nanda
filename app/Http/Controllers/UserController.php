@@ -16,6 +16,10 @@ class UserController extends Controller
     {
         return view('user.dashboard');
     }
+    public function pesan($id)
+    {
+        return view('user.pesan', compact('id'));
+    }
     public function index()
     {
         $data = User::all();
