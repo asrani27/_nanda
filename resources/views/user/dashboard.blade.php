@@ -27,7 +27,7 @@
                         <p class="text-white m-b-0">Tipe : {{$item->tipe}}, Rp. {{number_format($item->harga)}}</p>
                     </div>
                     <div class="col-3 text-right">
-                        <a href="/user/pesan" class="btn btn-success">Pesan</a>
+                        <a href="/user/pesan/{{$item->id}}" class="btn btn-success">Pesan</a>
                     </div>
                 </div>
             </div>
