@@ -11,8 +11,8 @@
                     <div class="btn-group card-option">
 
 
-                        {{-- <a href="/user/laporan/reservasi" target="_blank" class="btn btn-danger">Print</a> --}}
-                        {{-- <a href="/user/reservasi/add" class="btn btn-primary">Tambah</a> --}}
+                        <a href="/superadmin/laporan/reservasi" target="_blank" class="btn btn-danger">Print</a>
+                        <a href="/superadmin/reservasi/add" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
             </div>
@@ -48,11 +48,15 @@
                                 <td>{{number_format($item->harga * $item->lama)}}</td>
                                 <td>{{$item->status}}</td>
                                 <td>
+                                    @if ($item->status == 'lunas')
+                                    <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Selesai</a>
+                                    @else
                                     <a href="/superadmin/bayar/{{$item->id}}" class="btn btn-sm btn-success"><i
                                             class="fa fa-check"></i> Bayar</a>
                                     <a href="/superadmin/reservasi/delete/{{$item->id}}" class="btn btn-sm btn-danger"
                                         onclick="return confirm('Yakin ingin dibatalkan?');"><i class="fa fa-times"></i>
                                         batal</a>
+                                    @endif
 
                                 </td>
                             </tr>

@@ -55,6 +55,11 @@
                                     class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                     </li>
                     <li class="nav-item">
+                        <a href="/superadmin/pelanggan" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-users"></i></span><span class="pcoded-mtext">
+                                Pelanggan</span></a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/superadmin/perlengkapan" class="nav-link "><span class="pcoded-micon"><i
                                     class="feather icon-list"></i></span><span class="pcoded-mtext">
                                 Perlengkapan</span></a>
@@ -84,6 +89,11 @@
                     <li class="nav-item">
                         <a href="/user/dashboard" class="nav-link "><span class="pcoded-micon"><i
                                     class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/user/profil" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-user"></i></span><span class="pcoded-mtext">Profil
+                            </span></a>
                     </li>
                     <li class="nav-item">
                         <a href="/user/reservasi" class="nav-link "><span class="pcoded-micon"><i

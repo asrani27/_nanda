@@ -43,8 +43,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function skpd()
+    public function reservasi()
     {
-        return $this->hasOne(Skpd::class);
+        return $this->hasMany(Reservasi::class, 'user_id');
     }
 }

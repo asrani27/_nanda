@@ -28,6 +28,7 @@ use App\Models\Kamar;
 use App\Models\Kodefikasi;
 use App\Models\Kriteria;
 use App\Models\LaporKerja;
+use App\Models\Pembayaran;
 use App\Models\Pembiayaan;
 use App\Models\Perusahaan;
 use App\Models\Verifikasi;
@@ -82,6 +83,12 @@ class LaporanController extends Controller
     {
         $data = Reservasi::get();
         $pdf = Pdf::loadView('superadmin.laporan.pdf_reservasi', compact('data'))->setPaper('a4', 'landscape');;
+        return $pdf->stream();
+    }
+    public function pembayaran()
+    {
+        $data = Pembayaran::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_pembayaran', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
     public function hasil()

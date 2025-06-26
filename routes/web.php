@@ -10,9 +10,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\ReservasiController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\PerlengkapanController;
-use App\Http\Controllers\ReservasiController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -28,15 +30,10 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/user/bayar/{id}', [UserController::class, 'bayar']);
     Route::post('/user/bayar/{id}', [UserController::class, 'simpanBayar']);
     Route::get('/user/reservasi', [UserController::class, 'reservasi']);
+    Route::get('/user/profil', [UserController::class, 'profil']);
+    Route::post('/user/profil', [UserController::class, 'updateProfil']);
     Route::get('/user/laporan/reservasi', [UserController::class, 'laporan_reservasi']);
     Route::get('/user/reservasi/delete/{id}', [UserController::class, 'deleteReservasi']);
-
-    Route::get('/user/pengaduan', [UserController::class, 'pengaduan']);
-    Route::get('/user/pengaduan/add', [UserController::class, 'add_pengaduan']);
-    Route::post('/user/pengaduan/add', [UserController::class, 'store_pengaduan']);
-    Route::get('/user/pengaduan/edit/{id}', [UserController::class, 'edit_pengaduan']);
-    Route::post('/user/pengaduan/edit/{id}', [UserController::class, 'update_pengaduan']);
-    Route::get('/user/pengaduan/delete/{id}', [UserController::class, 'delete_pengaduan']);
 });
 
 Route::middleware(['auth', 'superadmin'])->group(function () {
@@ -44,6 +41,13 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin/laporan', [LaporanController::class, 'index']);
 
     Route::get('/superadmin/laporan/bulan', [LaporanController::class, 'bulan']);
+
+    Route::get('/superadmin/pelanggan', [PelangganController::class, 'index']);
+    Route::get('/superadmin/pelanggan/add', [PelangganController::class, 'add']);
+    Route::get('/superadmin/pelanggan/edit/{id}', [PelangganController::class, 'edit']);
+    Route::get('/superadmin/pelanggan/delete/{id}', [PelangganController::class, 'delete']);
+    Route::post('/superadmin/pelanggan/add', [PelangganController::class, 'store']);
+    Route::post('/superadmin/pelanggan/edit/{id}', [PelangganController::class, 'update']);
 
     Route::get('/superadmin/kamar', [KamarController::class, 'index']);
     Route::get('/superadmin/kamar/add', [KamarController::class, 'add']);
@@ -66,12 +70,17 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::post('/superadmin/perlengkapan/add', [PerlengkapanController::class, 'store']);
     Route::post('/superadmin/perlengkapan/edit/{id}', [PerlengkapanController::class, 'update']);
 
+    Route::get('/superadmin/pembayaran', [PembayaranController::class, 'index']);
+
     Route::get('/superadmin/reservasi', [ReservasiController::class, 'index']);
     Route::get('/superadmin/reservasi/add', [ReservasiController::class, 'add']);
     Route::get('/superadmin/reservasi/edit/{id}', [ReservasiController::class, 'edit']);
     Route::get('/superadmin/reservasi/delete/{id}', [ReservasiController::class, 'delete']);
     Route::post('/superadmin/reservasi/add', [ReservasiController::class, 'store']);
     Route::post('/superadmin/reservasi/edit/{id}', [ReservasiController::class, 'update']);
+
+    Route::get('/superadmin/bayar/{id}', [ReservasiController::class, 'bayar']);
+    Route::post('/superadmin/bayar/{id}', [ReservasiController::class, 'simpanBayar']);
 
     Route::get('/superadmin/kamar', [KamarController::class, 'index']);
     Route::get('/superadmin/kamar/add', [KamarController::class, 'add']);
@@ -91,6 +100,7 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/superadmin/laporan/perlengkapan', [LaporanController::class, 'perlengkapan']);
     Route::get('/superadmin/laporan/reservasi', [LaporanController::class, 'reservasi']);
     Route::get('/superadmin/laporan/pembayaran', [LaporanController::class, 'pembayaran']);
+    Route::get('/superadmin/laporan/pelanggan', [LaporanController::class, 'pelanggan']);
 
     Route::get('/laporan/pilih', [LaporanController::class, 'pilih']);
     Route::get('/laporan/klien/print', [LaporanController::class, 'pdfklien']);

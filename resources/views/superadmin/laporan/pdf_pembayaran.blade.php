@@ -26,34 +26,31 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN DATA RESERVASI
+    <h3 style="text-align: center">LAPORAN DATA PEMBAYARAN
     </h3>
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
+            <th>No</th>
+            <th>Tanggal</th>
             <th>No Reservasi</th>
-            <th>tipe kamar</th>
-            <th>check in</th>
-            <th>check out</th>
-            <th>lama</th>
-            <th>harga</th>
-            <th>total</th>
-            <th>status</th>
+            <th>Pelanggan</th>
+            <th>Metode Bayar</th>
+            <th>Jumlah</th>
         </tr>
         @php
         $no =1;
         @endphp
 
-        @foreach($data as $index => $item)
+        @foreach($data as $key => $item)
         <tr>
-            <td>REV.{{$item->id}}</td>
-            <td>{{$item->kamar == null ? null : $item->kamar->tipe}}</td>
-            <td>{{\carbon\carbon::parse($item->check_in)->format('d M Y')}}</td>
-            <td>{{\carbon\carbon::parse($item->check_out)->format('d M Y')}}</td>
-            <td>{{$item->lama}}</td>
-            <td>{{number_format($item->harga)}}</td>
-            <td>{{number_format($item->harga * $item->lama)}}</td>
-            <td>{{$item->status}}</td>
+            <td>{{1 + $key}}</td>
+            <td>{{\carbon\carbon::parse($item->tanggal)->format('d M Y')}}</td>
+            <td>REV.{{$item->reservasi_id}}</td>
+            <td>{{$item->reservasi == null ? null : $item->reservasi->user->name}}</td>
+
+            <td>{{$item->metode}}</td>
+            <td>{{number_format($item->jumlah)}}</td>
         </tr>
         @endforeach
     </table>

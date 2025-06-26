@@ -11,6 +11,7 @@ use App\Models\Ruangan;
 use App\Models\Kriteria;
 use App\Models\Inventaris;
 use App\Models\Kamar;
+use App\Models\Pelanggan;
 use App\Models\Verifikasi;
 use App\Models\Perlengkapan;
 
@@ -49,6 +50,10 @@ function bulan()
     return $namaBulan;
 }
 
+function pelanggan()
+{
+    return Pelanggan::where('roles', 'user')->get();
+}
 function kamar()
 {
     return Kamar::get();

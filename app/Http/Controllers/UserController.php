@@ -32,6 +32,23 @@ class UserController extends Controller
         Session::flash('success', 'Reservasi Dibatalkan');
         return back();
     }
+    public function updateProfil(Request $req)
+    {
+        $data = Auth::user();
+
+        $data->name = $req->name;
+        $data->email = $req->email;
+        $data->telp = $req->telp;
+        $data->alamat = $req->alamat;
+        $data->save();
+        Session::flash('success', 'berhasil di update');
+        return view('user.profil', compact('data'));
+    }
+    public function profil()
+    {
+        $data = Auth::user();
+        return view('user.profil', compact('data'));
+    }
     public function pesan($id)
     {
         $data = Kamar::find($id);

@@ -6,12 +6,13 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header">
-                <h5>Data kriteria</h5>
+                <h5>Data pelanggan</h5>
                 <div class="card-header-right">
                     <div class="btn-group card-option">
 
-                        <a href="/superadmin/laporan/kriteria" target="_blank" class="btn btn-danger">Print</a>
-                        <a href="/superadmin/kriteria/add" class="btn btn-primary">Tambah</a>
+
+                        <a href="/superadmin/laporan/pelanggan" target="_blank" class="btn btn-danger">Print</a>
+                        <a href="/superadmin/pelanggan/add" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
             </div>
@@ -21,23 +22,25 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama Kriteria</th>
-                                <th>Jenis</th>
-                                <th>Bobot</th>
-                                <th>aksi</th>
+                                <th>Nama pelanggan</th>
+                                <th>email</th>
+                                <th>telp</th>
+                                <th>alamat</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $key=> $item)
                             <tr>
                                 <td>{{$data->firstItem() + $key}}</td>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->jenis}}</td>
-                                <td>{{$item->bobot}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->telp}}</td>
+                                <td>{{$item->alamat}}</td>
                                 <td>
-                                    <a href="/superadmin/kriteria/edit/{{$item->id}}" class="btn btn-sm btn-success"><i
+                                    <a href="/superadmin/pelanggan/edit/{{$item->id}}" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit"></i></a>
-                                    <a href="/superadmin/kriteria/delete/{{$item->id}}" class="btn btn-sm btn-danger"
+                                    <a href="/superadmin/pelanggan/delete/{{$item->id}}" class="btn btn-sm btn-danger"
                                         onclick="return confirm('Yakin ingin dihapus?');"><i
                                             class="fa fa-trash"></i></a>
 
