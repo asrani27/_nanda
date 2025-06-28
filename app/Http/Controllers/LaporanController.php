@@ -28,6 +28,7 @@ use App\Models\Kamar;
 use App\Models\Kodefikasi;
 use App\Models\Kriteria;
 use App\Models\LaporKerja;
+use App\Models\Pelanggan;
 use App\Models\Pembayaran;
 use App\Models\Pembiayaan;
 use App\Models\Perusahaan;
@@ -70,7 +71,13 @@ class LaporanController extends Controller
     public function fasilitas()
     {
         $data = Fasilitas::get();
-        $pdf = Pdf::loadView('superadmin.laporan.pdf_Fasilitas', compact('data'))->setPaper('a4', 'landscape');;
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_fasilitas', compact('data'))->setPaper('a4', 'landscape');;
+        return $pdf->stream();
+    }
+    public function pelanggan()
+    {
+        $data = Pelanggan::get();
+        $pdf = Pdf::loadView('superadmin.laporan.pdf_pelanggan', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
     public function perlengkapan()
