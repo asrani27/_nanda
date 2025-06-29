@@ -84,13 +84,16 @@
         <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="first-slide" src="/hotel/images/banner1.jpg" alt="First slide">
+                <div class="carousel-item active"
+                    style="background-image: url('/logo/kamar2.jpeg'); background-size:cover">
                     <div class="container">
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                     </div>
                 </div>
             </div>
