@@ -76,7 +76,7 @@ class LaporanController extends Controller
     }
     public function pelanggan()
     {
-        $data = Pelanggan::get();
+        $data = Pelanggan::where('roles', '!=', 'superadmin')->get();
         $pdf = Pdf::loadView('superadmin.laporan.pdf_pelanggan', compact('data'))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
