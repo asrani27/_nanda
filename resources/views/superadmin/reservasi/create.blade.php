@@ -26,7 +26,8 @@
                             <label for="exampleInputEmail1">Kamar </label>
                             <select class="form-control" required name="kamar_id">
                                 @foreach (kamar() as $item)
-                                <option value="{{$item->id}}">{{$item->tipe}} - Rp., {{number_format($item->harga)}}
+                                <option value="{{$item->id}}">{{$item->tipe}} - Rp., {{number_format($item->harga)}} -
+                                    No kamar : {{$item->nomor}} ( {{$item->status == 'T' ? 'terisi':'tersedia'}})
                                 </option>
                                 @endforeach
                             </select>
