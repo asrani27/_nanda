@@ -29,6 +29,7 @@ class DaftarController extends Controller
             'name' => $req->name,
             'username' => $req->username,
             'password' => Hash::make($req->password),
+            'nik' => $req->nik,
             'roles' => 'user', // Pastikan ada kolom 'role' di tabel users
         ]);
 

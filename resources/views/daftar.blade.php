@@ -46,6 +46,13 @@
                         <form action="/daftar" method="post">
                             @csrf
                             <div class="form-group mb-3">
+                                <label class="floating-label" for="">NIK</label>
+                                <input type="text" class="form-control" name="nik" autocomplete='new-password' required>
+                                @error('nik')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-3">
                                 <label class="floating-label" for="">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="name" autocomplete='new-password'
                                     required>
