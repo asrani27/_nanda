@@ -23,7 +23,7 @@
     </select>
     <button type="submit" class="btn btn-xs btn-primary" style="padding: 2px 5px">Print Laporan</button>
 </form>
-<br /><br />
+<br />
 <div class="row">
     <!-- [ stiped-table ] start -->
     <div class="col-xl-12">
