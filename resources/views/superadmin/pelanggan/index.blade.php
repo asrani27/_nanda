@@ -22,6 +22,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>NIK</th>
                                 <th>Nama pelanggan</th>
                                 <th>email</th>
                                 <th>telp</th>
@@ -33,6 +34,7 @@
                             @foreach ($data as $key=> $item)
                             <tr>
                                 <td>{{$data->firstItem() + $key}}</td>
+                                <td>{{$item->nik}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->telp}}</td>

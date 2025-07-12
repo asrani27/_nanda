@@ -12,7 +12,10 @@
                 @csrf
                 <div class="row">
                     <div class="col-sm-12">
-
+                        <div class="form-group">
+                            <label class="floating-label" for="Email">NIK</label>
+                            <input type="text" class="form-control" name="nik" value="{{$data->nik}}" required>
+                        </div>
                         <div class="form-group">
                             <label class="floating-label" for="Email">nama pelanggan</label>
                             <input type="text" class="form-control" name="name" value="{{$data->name}}" required>
