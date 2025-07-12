@@ -71,6 +71,7 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::post('/superadmin/perlengkapan/edit/{id}', [PerlengkapanController::class, 'update']);
 
     Route::get('/superadmin/pembayaran', [PembayaranController::class, 'index']);
+    Route::get('/superadmin/pembayaran/perbulan', [PembayaranController::class, 'perbulan']);
 
     Route::get('/superadmin/reservasi', [ReservasiController::class, 'index']);
     Route::get('/superadmin/reservasi/add', [ReservasiController::class, 'add']);
