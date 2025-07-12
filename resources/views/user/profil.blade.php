@@ -18,6 +18,10 @@
                             <input type="text" class="form-control" value="P{{$data->id}}" readonly>
                         </div>
                         <div class="form-group">
+                            <label class="floating-label" for="Email">NIK Pelanggan</label>
+                            <input type="text" class="form-control" value="{{$data->nik}}">
+                        </div>
+                        <div class="form-group">
                             <label class="floating-label" for="Email">Nama Lengkap</label>
                             <input type="text" class="form-control" name="name" value="{{$data->name}}" required>
                         </div>

@@ -36,6 +36,7 @@ class UserController extends Controller
     {
         $data = Auth::user();
 
+        $data->nik = $req->nik;
         $data->name = $req->name;
         $data->email = $req->email;
         $data->telp = $req->telp;
