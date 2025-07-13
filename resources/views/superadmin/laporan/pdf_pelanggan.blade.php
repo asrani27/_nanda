@@ -32,6 +32,7 @@
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
+            <th>NIK</th>
             <th>Nama pelanggan</th>
             <th>email</th>
             <th>telp</th>
@@ -44,6 +45,7 @@
         @foreach($data as $key => $item)
         <tr>
             <td>{{1 + $key}}</td>
+            <td>{{$item->nik}}</td>
             <td>{{$item->name}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->telp}}</td>
